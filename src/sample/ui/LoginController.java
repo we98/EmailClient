@@ -42,7 +42,7 @@ public class LoginController{
         if(loginSucceed){
             System.out.println("login succeed!");
             try{
-                showMain(account.getText() + emails.getValue(), password.getText());
+                showMain(account.getText(), password.getText(), emails.getValue().toString());
                 ((Stage)(account.getScene().getWindow())).close();
             }
             catch (Exception e){
@@ -54,12 +54,12 @@ public class LoginController{
         }
     }
 
-    private void showMain(String account, String password) throws Exception{
+    private void showMain(String account, String password, String email) throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("main_ui.fxml"));
         Stage stage = new Stage(StageStyle.DECORATED);
-        stage.setScene(new Scene(loader.load(), 500, 620));
+        stage.setScene(new Scene(loader.load(), 500, 660));
         MainController mainController = loader.getController();
-        mainController.initData(account, password);
+        mainController.initData(account, password, email);
         stage.setResizable(false);
         stage.show();
     }

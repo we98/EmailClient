@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.web.HTMLEditor?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ui.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ui.MainController">
    <children>
       <HTMLEditor fx:id="content" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="10.0" layoutY="293.0" prefHeight="256.0" prefWidth="485.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
       <TextField fx:id="account" layoutX="14.0" layoutY="30.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
@@ -25,5 +27,11 @@
       <PasswordField fx:id="password" layoutX="10.0" layoutY="100.0" />
       <Button layoutX="436.0" layoutY="40.0" mnemonicParsing="false" onAction="#test" text="Copy" />
       <Button layoutX="331.0" layoutY="40.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
+      <Button layoutX="10.0" layoutY="616.0" mnemonicParsing="false" onAction="#addAttachment" text="Add attachment" AnchorPane.leftAnchor="10.0" />
+      <Label fx:id="attachment" layoutX="134.0" layoutY="620.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

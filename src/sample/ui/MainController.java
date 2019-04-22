@@ -5,9 +5,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.web.HTMLEditor;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import sample.smtp.EmailUtil;
@@ -24,6 +26,7 @@ public class MainController {
 
     private String currentAccount;
     private String currentPassword;
+    private String currentEmail;
     @FXML
     private TextField account;
     @FXML
@@ -38,6 +41,8 @@ public class MainController {
     private TextField subject;
     @FXML
     private HTMLEditor content;
+    @FXML
+    private Label attachment;
 
     ExecutorService threadPool = Executors.newCachedThreadPool();
 
@@ -48,7 +53,7 @@ public class MainController {
             @Override
             public void run() {
                 try{
-                    EmailUtil.sendEmail(account.getText(), password.getText(),
+                    EmailUtil.sendEmail(currentAccount, currentPassword, currentEmail,
                             receiver.getText(), subject.getText(), content.getHtmlText());
                 }
                 catch (Exception e){
@@ -56,6 +61,14 @@ public class MainController {
                 }
             }
         });
+    }
+
+    @FXML
+    private void addAttachment(ActionEvent event){
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Add attachment");
+        File selected = fileChooser.showOpenDialog(account.getScene().getWindow());
+        attachment.setText(selected.getAbsolutePath());
     }
 
     @FXML
@@ -95,7 +108,6 @@ public class MainController {
     }
 
 
-
     private void showLogin() throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("login_ui.fxml"));
         Stage stage = new Stage(StageStyle.DECORATED);
@@ -104,9 +116,12 @@ public class MainController {
         stage.show();
     }
 
-    public void initData(String account, String password){
+    public void initData(String account, String password, String email){
         this.account.setText(account);
         this.password.setText(password);
+        currentAccount = account;
+        currentPassword = password;
+        currentEmail = email;
     }
 
 }
