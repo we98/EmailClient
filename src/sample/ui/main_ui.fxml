@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.web.HTMLEditor?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ui.MainController">
+   <children>
+      <HTMLEditor fx:id="content" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="10.0" layoutY="293.0" prefHeight="256.0" prefWidth="485.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+      <TextField fx:id="account" layoutX="14.0" layoutY="30.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
+      <TextField fx:id="subject" layoutX="10.0" layoutY="237.0" prefHeight="30.0" prefWidth="485.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+      <TextField fx:id="receiver" layoutX="334.0" layoutY="100.0" AnchorPane.rightAnchor="10.0" />
+      <Text layoutX="10.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject" AnchorPane.leftAnchor="10.0" />
+      <Text layoutX="10.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account" AnchorPane.leftAnchor="10.0" />
+      <Text layoutX="10.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" AnchorPane.leftAnchor="10.0" />
+      <TextField fx:id="from" layoutX="10.0" layoutY="160.0" AnchorPane.leftAnchor="10.0" />
+      <TextField fx:id="to" layoutX="330.0" layoutY="160.0" AnchorPane.rightAnchor="10.0" />
+      <Text layoutX="10.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From" AnchorPane.leftAnchor="10.0" />
+      <Text layoutX="335.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To" />
+      <Text layoutX="334.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Receiver" />
+      <Button layoutX="10.0" layoutY="568.0" mnemonicParsing="false" onAction="#send" prefHeight="30.0" prefWidth="485.0" text="Send" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+      <PasswordField fx:id="password" layoutX="10.0" layoutY="100.0" />
+      <Button layoutX="436.0" layoutY="40.0" mnemonicParsing="false" onAction="#test" text="Copy" />
+      <Button layoutX="331.0" layoutY="40.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
+   </children>
+</AnchorPane>
