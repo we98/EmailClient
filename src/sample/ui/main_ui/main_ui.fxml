@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1000.0" stylesheets="@/main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ui.main_ui.MainController">
+<children>
+    <VBox prefHeight="750.0" prefWidth="250.0" styleClass="sidebar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <children>
+            <Label fx:id="account" prefHeight="90.0" prefWidth="250.0" style="-fx-background-color: #00A2D3;" text="Account" textFill="WHITE">
+                <VBox.margin>
+                    <Insets />
+                </VBox.margin>
+                <padding>
+                    <Insets left="10.0" />
+                </padding>
+                <font>
+                    <Font name="Calibri" size="30.0" />
+                </font>
+            </Label>
+            <HBox alignment="CENTER_LEFT" onMouseClicked="#toUserInfo" prefHeight="60.0" prefWidth="200.0" styleClass="options">
+                <children>
+                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@/userinfo.png" />
+                        </image>
+                    </ImageView>
+                    <Label text="User info" textFill="#dbdbdb">
+                        <font>
+                            <Font name="Calibri" size="20.0" />
+                        </font>
+                        <HBox.margin>
+                            <Insets left="5.0" />
+                        </HBox.margin>
+                    </Label>
+                </children>
+                <padding>
+                    <Insets left="10.0" />
+                </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" onMouseClicked="#toSendEmail" prefHeight="60.0" prefWidth="250.0" styleClass="options">
+                <children>
+                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@/send.png" />
+                        </image>
+                    </ImageView>
+                    <Label text="Send mail" textFill="#dbdbdb">
+                        <font>
+                            <Font name="Calibri" size="20.0" />
+                        </font>
+                        <HBox.margin>
+                            <Insets left="5.0" />
+                        </HBox.margin>
+                    </Label>
+                </children>
+                <padding>
+                    <Insets left="10.0" />
+                </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" onMouseClicked="#toEmailList" prefHeight="60.0" prefWidth="250.0" styleClass="options">
+                <children>
+                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@/checkemail.png" />
+                        </image>
+                    </ImageView>
+                    <Label text="Check email" textFill="#dbdbdb">
+                        <font>
+                            <Font name="Calibri" size="20.0" />
+                        </font>
+                        <HBox.margin>
+                            <Insets left="5.0" />
+                        </HBox.margin>
+                    </Label>
+                </children>
+                <padding>
+                    <Insets left="10.0" />
+                </padding>
+            </HBox>
+            <VBox prefHeight="285.0" prefWidth="190.0">
+                <children>
+                    <Label text="EMAIL LIST" textFill="#7c8184">
+                        <font>
+                            <Font name="Calibri" size="20.0" />
+                        </font>
+                        <padding>
+                            <Insets top="10.0" />
+                        </padding>
+                    </Label>
+                    <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="200.0">
+                        <children>
+                            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@/search.png" />
+                                </image>
+                            </ImageView>
+                            <JFXTextField prefHeight="15.0" prefWidth="150.0" promptText="Search" style="-fx-text-fill: #e6e6e6;">
+                                <font>
+                                    <Font name="Calibri" size="14.0" />
+                                </font>
+                                <HBox.margin>
+                                    <Insets left="5.0" />
+                                </HBox.margin>
+                            </JFXTextField>
+                        </children>
+                    </HBox>
+                </children>
+                <VBox.margin>
+                    <Insets left="10.0" />
+                </VBox.margin>
+            </VBox>
+        </children>
+    </VBox>
+    <AnchorPane fx:id="content" layoutX="309.0" layoutY="210.0" prefHeight="660.0" prefWidth="750.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="90.0" />
+      <AnchorPane layoutX="263.0" layoutY="-110.0" prefHeight="90.0" prefWidth="750.0" style="-fx-background-color: #ffffff;" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="partName" prefHeight="90.0" prefWidth="250.0" text="User info" textFill="#7c8184" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font name="Calibri" size="30.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_RIGHT" layoutX="481.0" layoutY="15.0" onMouseClicked="#logout" prefHeight="60.0" prefWidth="165.0" styleClass="logout" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/logout.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Logout" textFill="#0f72ee">
+                     <font>
+                        <Font name="Calibri" size="30.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </HBox>
+         </children>
+      </AnchorPane>
+</children>
+</AnchorPane>

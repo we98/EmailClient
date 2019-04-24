@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.HTMLEditor?>
+
+<AnchorPane prefHeight="672.0" prefWidth="762.0" style="-fx-background-color: #ffffff;" stylesheets="@/main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ui.main_ui.SendEmailController">
+   <children>
+      <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="30.0" layoutY="177.0" prefHeight="330.0" prefWidth="694.0" style="-fx-background-color: transparent;" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </HTMLEditor>
+      <JFXTextField fx:id="receiver" focusColor="#0f72ee" layoutX="30.0" layoutY="38.0" prefHeight="32.0" prefWidth="702.0" style="-fx-background-color: transprant;" styleClass="send_email_inputfield" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="subject" focusColor="#0f72ee" layoutX="30.0" layoutY="116.0" prefHeight="32.0" style="-fx-background-color: transparent;" styleClass="send_email_inputfield" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="29.0">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font></JFXTextField>
+      <Label layoutX="30.0" layoutY="10.0" text="Send to:" textFill="#7c8184" AnchorPane.leftAnchor="30.0">
+         <font>
+            <Font name="Calibri" size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="87.0" text="Subject:" textFill="#7c8184">
+         <font>
+            <Font name="Calibri" size="23.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="30.0" layoutY="535.0" onAction="#addAttachment" prefHeight="40.0" prefWidth="143.0" style="-fx-background-color: #0f72ee;" text="Add attachment" textFill="WHITE" AnchorPane.leftAnchor="30.0">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="30.0" layoutY="605.0" onAction="#deleteAttachment" prefHeight="40.0" prefWidth="143.0" style="-fx-background-color: #0f72ee;" text="Delete attachment" textFill="WHITE" AnchorPane.leftAnchor="30.0">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXListView fx:id="attachmentList" layoutX="203.0" layoutY="535.0" prefHeight="110.0" prefWidth="358.0" AnchorPane.leftAnchor="201.0" AnchorPane.rightAnchor="201.0" />
+      <JFXButton buttonType="RAISED" layoutX="589.0" layoutY="570.0" onAction="#send" prefHeight="40.0" prefWidth="143.0" style="-fx-background-color: #0f72ee;" text="Send now" textFill="WHITE" AnchorPane.rightAnchor="30.0">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

@@ -1,6 +1,5 @@
 package sample.ui;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,21 +11,22 @@ import javafx.scene.web.HTMLEditor;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import sample.smtp.EmailUtil;
+import sample.smtp.SmtpMailSender;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
 
 public class MainController {
 
     private String currentAccount;
     private String currentPassword;
     private String currentEmail;
+    private ArrayList<File> attachments = new ArrayList<>();
     @FXML
     private TextField account;
     @FXML
@@ -46,15 +46,17 @@ public class MainController {
 
     ExecutorService threadPool = Executors.newCachedThreadPool();
 
-
     @FXML
     private void send(ActionEvent event){
         threadPool.execute(new Runnable() {
             @Override
             public void run() {
                 try{
-                    EmailUtil.sendEmail(currentAccount, currentPassword, currentEmail,
-                            receiver.getText(), subject.getText(), content.getHtmlText());
+                    SmtpMailSender smtpMailSender = new SmtpMailSender(currentAccount, currentPassword, currentEmail);
+                    boolean succeed = smtpMailSender.sendEmail(receiver.getText(), subject.getText(), content.getHtmlText(), attachments);
+                    if(succeed){
+                        System.out.println("send succeed!");
+                    }
                 }
                 catch (Exception e){
                     e.printStackTrace();
@@ -68,6 +70,7 @@ public class MainController {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Add attachment");
         File selected = fileChooser.showOpenDialog(account.getScene().getWindow());
+        attachments.add(selected);
         attachment.setText(selected.getAbsolutePath());
     }
 
@@ -107,11 +110,10 @@ public class MainController {
         threadPool.shutdownNow();
     }
 
-
     private void showLogin() throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("login_ui.fxml"));
         Stage stage = new Stage(StageStyle.DECORATED);
-        stage.setScene(new Scene(loader.load(), 430, 290));
+        stage.setScene(new Scene(loader.load(), 500, 400));
         stage.setResizable(false);
         stage.show();
     }
