@@ -107,7 +107,10 @@ public class SmtpMailSender {
         sendCommand(writer, "mail from:<" + currentAccount + currentEmail + ">");
         getResponse(reader);
         sendCommand(writer, "rcpt to:<" + receiver + ">");
-        getResponse(reader);
+        if(!"250".equals(getResponse(reader))){
+            closeResource(writer, reader, outputStream, inputStream, socket);
+            return false;
+        }
         //给自己发回一条，不给自己发一条的话163会认为是垃圾邮件，不让发
         if("@163.com".equals(currentEmail)){
             sendCommand(writer, "rcpt to:<" + currentAccount + currentEmail +">");
@@ -138,9 +141,9 @@ public class SmtpMailSender {
                 fileName = currentFile.getName();
                 sendNewlineCommand(writer);
                 sendCommand(writer, "--"+BOUNDARY);
-                sendCommand(writer, "Content-Type: "+ ContentTypeUtil.getContentType(currentFile.getAbsolutePath()) + "; name=\"" + fileName+"\"");
+                sendCommand(writer, "Content-Type: "+ ContentTypeUtil.getContentType(currentFile.getAbsolutePath()) + "; charset=UTF-8; name=\"" + fileName +"\"");
                 sendCommand(writer, "Content-Transfer-Encoding: base64");
-                sendCommand(writer, "Content-Disposition: attachment; filename=\""+fileName+"\"");
+                sendCommand(writer, "Content-Disposition: attachment; filename=\""+ fileName +"\"");
                 sendNewlineCommand(writer);
                 sendCommand(writer, Base64Util.encodeBase64File(currentFile));
             }

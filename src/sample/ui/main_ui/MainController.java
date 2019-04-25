@@ -86,7 +86,7 @@ public class MainController implements Initializable {
             e.printStackTrace();
         }
         clearContentPane();
-        //emailListController.initData();
+        emailListController.initData(currentAccount, currentPassword, currentEmail, content);
         content.getChildren().add(emailList);
     }
 

@@ -47,6 +47,9 @@ public class SendEmailController {
                     if(succeed){
                         System.out.println("send succeed!");
                     }
+                    else{
+
+                    }
                 }
                 catch (Exception e){
                     e.printStackTrace();

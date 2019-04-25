@@ -65,7 +65,6 @@ public class LoginController{
         try{
             SmtpMailSender smtpMailSender = new SmtpMailSender(currentAccount, currentPassword, emails.getValue().toString());
             loginSucceed = smtpMailSender.isLegalAccount();
-//            loginSucceed = SmtpMailSender.loginEmail(currentAccount, currentPassword, emails.getValue().toString());
         }
         catch (Exception e){
             e.printStackTrace();
