@@ -1,0 +1,15 @@
+.sidebar{
+	-fx-background-color: #333645;
+}
+.options, .logout{
+	-fx-background-color: transparent;
+}
+.options:hover{
+	-fx-background-color: #202332;
+}
+.logout:hover{
+	-fx-background-color: #f1f1f1;
+}
+.send_email_inputfield{
+	-fx-text-fill: #7c8184;
+}
